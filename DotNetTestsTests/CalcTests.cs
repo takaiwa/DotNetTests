@@ -69,14 +69,38 @@
         }
 
         /// <summary>
-        /// DataSourceを使ってテスト.
+        /// DataSourceのXMLを使ってテストを実行.
         /// ※TestContext.DataRowがエラーの場合、right click your test project, Add->Reference...->Assemblies->Framework->System.Data, check it.
         ///   テストデータとして使うXMLファイルの相対パスは、exeからの相対パス.
         /// </summary>
-        [TestMethod()]
-        // [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", @"C:\DotNetTests\DotNetTestsTests\testdata\TestData.xml", "Row", DataAccessMethod.Sequential)]
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", @"..\..\testdata\TestData.xml", "Row", DataAccessMethod.Sequential)]
-        public void DataSourceSumTest()
+        [TestMethod]
+        [DataSource(
+            "Microsoft.VisualStudio.TestTools.DataSource.XML",
+            @"..\..\testdata\TestData.xml",
+            "Row",
+            DataAccessMethod.Sequential)]
+        public void DataSourceXMLSumTest()
+        {
+            int x = Convert.ToInt32(this.TestContext.DataRow["x"]);
+            int y = Convert.ToInt32(this.TestContext.DataRow["y"]);
+            int expected = Convert.ToInt32(this.TestContext.DataRow["expected"]);
+
+            Calc cal = new Calc();
+            int actual = cal.Sum(x, y);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        /// DataSourceのCSVを使ってテストを実行.
+        /// ※CSVファイル、SJISでないと失敗した.
+        /// </summary>
+        [TestMethod]
+        [DataSource(
+            "Microsoft.VisualStudio.TestTools.DataSource.CSV",
+            @"..\..\testdata\TestData.csv",
+            "TestData#csv",
+            DataAccessMethod.Sequential)]
+        public void DataSourceCSVSumTest()
         {
             int x = Convert.ToInt32(this.TestContext.DataRow["x"]);
             int y = Convert.ToInt32(this.TestContext.DataRow["y"]);
