@@ -1,0 +1,12 @@
+﻿<testsuite>
+  <Row>
+    <x>1</x>
+    <y>2</y>
+    <expected>3</expected>
+  </Row>
+  <Row>
+    <x>10</x>
+    <y>22</y>
+    <expected>32</expected>
+  </Row>
+</testsuite>
