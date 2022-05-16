@@ -37,6 +37,10 @@
         public void SumTest(int x, int y, int expected)
         {
             Calc cal = new Calc();
+
+            // 出力による確認 ※テストエクスプローラーに出力される
+            Console.WriteLine("x:" + x + ", y:" + y + ", expected:" + expected);
+
             int actual = cal.Sum(x, y);
             Assert.AreEqual(expected, actual);
         }
