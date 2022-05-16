@@ -54,6 +54,21 @@
         }
 
         /// <summary>
+        /// DataRowに配列を使ってテスト.
+        /// </summary>
+        /// <param name="a">入力の配列.</param>
+        /// <param name="expected">期待値.</param>
+        [TestMethod]
+        [DataRow(new[] { 1, 2 }, 3)]
+        [DataRow(new[] { 10, 22 }, 32)]
+        public void ArraySumTest(int [] a, int expected)
+        {
+            Calc cal = new Calc();
+            int actual = cal.Sum(a[0], a[1]);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
         /// TestDataを使ってテスト.
         /// </summary>
         /// <param name="x">第一引数.</param>
@@ -67,6 +82,7 @@
             int actual = cal.Sum(x, y);
             Assert.AreEqual(expected, actual);
         }
+
 
         /// <summary>
         /// DataSourceのXMLを使ってテストを実行.
