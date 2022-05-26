@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="CalcTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
