@@ -16,15 +16,23 @@
         {
             string filePath = @"c:\work\settings.json";
 
+            // 設定ファイル用のデータ作成
             SettingsData sd1 = new SettingsData();
             sd1.ID = 123;
             sd1.Name = "foobar";
+            sd1.list = new List<string>();
 
+            sd1.list.Add("hoge1");
+            sd1.list.Add("hoge2");
+            sd1.list.Add("hoge3");
+
+            // 設定ファイル書き込み
             SettingSample.JsonSerialize<SettingsData>(sd1, filePath);
 
+            // 設定ファイル読み込み
             SettingsData sd2 = SettingSample.JsonDeserialize<SettingsData>(filePath);
 
-            Console.WriteLine("ID:" + sd2.ID + ", Name:" + sd2.Name);
+            Console.WriteLine("ID:" + sd2.ID + ", Name:" + sd2.Name + ", list[0]:" + sd2.list[0]);
         }
     }
 }
