@@ -60,9 +60,11 @@
     <Compile Include="CalcTests.cs" />
     <Compile Include="ExcelSampleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingSampleTests.cs" />
     <Compile Include="UtilTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="stylecop.json" />
   </ItemGroup>
